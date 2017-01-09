@@ -12,6 +12,29 @@ function startTimer() {
 	}
 	if(runningDown == 0) {
 		runningDown = 1;
+<<<<<<< HEAD
+=======
+		var countTarget = document.getElementById("inputTime").value;
+		decrement(countTarget);
+		document.getElementById("playDown").className = "fa fa-pause";
+	}
+	
+}
+function startPauseUp() {
+	if(runningUp == 0) {
+		runningUp = 1;
+		increment();
+		document.getElementById("playUp").className = "fa fa-pause";
+	}
+	else {
+		runningUp = 0;
+		document.getElementById("playUp").className = "fa fa-play";
+	}
+}
+function startPauseDown() {
+	if(runningDown == 0) {
+		runningDown = 1;
+>>>>>>> parent of 9e2343e... :bug: Bug fixes in decrement()
 		decrement();
 		document.getElementById("playDown").className = "fa fa-pause";
 	}
@@ -50,8 +73,12 @@ function increment () {
 // function decrement () {
 // 	console.log('decrement() called');
 // }
+<<<<<<< HEAD
 var timeDown = countTarget;
 function decrement () {
+=======
+function decrement (timeDown) {
+>>>>>>> parent of 9e2343e... :bug: Bug fixes in decrement()
 	if(runningDown == 1) {
 		setTimeout(function(){ 
 			if(timeDown >= 0 ) {
@@ -59,6 +86,10 @@ function decrement () {
 			var hours =  Math.floor((timeDown % 86400) / 3600);
 			var mins = Math.floor(((timeDown % 86400) % 3600) / 60);
 			var secs =  Math.floor(((timeDown % 86400) % 3600) % 60);;
+<<<<<<< HEAD
+=======
+			
+>>>>>>> parent of 9e2343e... :bug: Bug fixes in decrement()
 			timeDown--;
 
 			if (days < 10) {days = "0" + days;}
