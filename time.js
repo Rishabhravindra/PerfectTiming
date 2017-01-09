@@ -1,7 +1,7 @@
 document.getElementById('getTimeButton').onclick = function() {initializeClock('getDays', 'getHr', 'getMin', 'getSec',document.getElementById('inputTime').value)
 };
 var reset = document.getElementById('resetButton'); 
-// .onclick = function() {resetClock()};
+var count =0;
 
 
 function calcTime(target) {
@@ -22,8 +22,19 @@ function calcTime(target) {
 		};
 
 }
+	var prevTarget =1;
+	var currentTarget =2;
 function initializeClock(d,h,m,s,target) {
-	var days = document.getElementById(d);
+
+	if (count%2 ==0) { 
+		prevTarget = target;
+	}
+	else { 
+		currentTarget = target;
+	}
+	count++;	
+	
+	if( prevTarget != currentTarget) { var days = document.getElementById(d);
 	var hr = document.getElementById(h);	
 	var min = document.getElementById(m);
 	var sec = document.getElementById(s);
@@ -50,9 +61,14 @@ function updateClock() {
 		hr.innerHTML = 0;
 		min.innerHTML = 0;
 		sec.innerHTML = 0;
+		count--;
 	}
 	reset.onclick = function() {resetClock()};
 	updateClock(); // run function once at first to avoid delay
 	var timeinterval = setInterval(updateClock,1000);
+	}
+	else {
+		console.log("Pause Enabled");
+	}
 }
 	
