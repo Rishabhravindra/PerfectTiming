@@ -1,5 +1,9 @@
 document.getElementById('getTimeButton').onclick = function() {initializeClock('getDays', 'getHr', 'getMin', 'getSec',document.getElementById('inputTime').value)
 };
+var reset = document.getElementById('resetButton'); 
+// .onclick = function() {resetClock()};
+
+
 function calcTime(target) {
 	// target = document.getElementById('inputTime').value;
 	// console.log(target);
@@ -40,9 +44,15 @@ function updateClock() {
 			clearInterval(timeinterval);
 		}
 	}
+	function resetClock() {
+		clearInterval(timeinterval);
+		days.innerHTML = 0;
+		hr.innerHTML = 0;
+		min.innerHTML = 0;
+		sec.innerHTML = 0;
+	}
+	reset.onclick = function() {resetClock()};
 	updateClock(); // run function once at first to avoid delay
 	var timeinterval = setInterval(updateClock,1000);
-
-
 }
 	
