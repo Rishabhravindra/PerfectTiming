@@ -35,27 +35,27 @@
         <div class="card clock pt-2">
               <div  class="rows text-xs-center ">
                         <div class="col-lg-3 col-xs-6">
-                            <span id="getDays">00</span>
+                            <span id="getDaysUp">00</span>
                             <div class="desc">Days</div>
                         </div>
                         <div class="col-lg-3 col-xs-6">
-                            <span id="getHr">00</span>
+                            <span id="getHrUp">00</span>
                             <div class="desc">Hours</div>
                         </div>
                         <div class="col-lg-3 col-xs-6">
-                            <span id="getMin">00</span>
+                            <span id="getMinUp">00</span>
                             <div class="desc">Minutes</div>
                         </div>
                         <div class="col-lg-3 col-xs-6">
-                            <span id="getSec">00</span>
+                            <span id="getSecUp">00</span>
                             <div class="desc">Seconds</div>
                         </div>
                     </div>
             <!--Card content-->
                     <div class="card-block">
                         <center>                
-                        <a id="startPause" class="btn-floating btn-small play" onclick="startPause()"><i id="play" class="fa fa-play"></i></a>
-                        <a class="btn-floating btn-small stop" onclick="reset()"><i class="fa fa-refresh"></i></a>
+                        <a id="startPause" class="btn-floating btn-small play" onclick="startPauseUp()"><i id="playUp" class="fa fa-play"></i></a>
+                        <a class="btn-floating btn-small stop" onclick="resetUp()"><i class="fa fa-refresh"></i></a>
                         </center>
                     </div>
             <!--/.Card content-->
@@ -67,27 +67,27 @@
         <div class="card clock pt-2">
               <div  class="rows text-xs-center ">
                         <div class="col-lg-3 col-xs-6">
-                            <span id="getDays"></span>
+                            <span id="getDaysDown">00</span>
                             <div class="desc">Days</div>
                         </div>
                         <div class="col-lg-3 col-xs-6">
-                            <span id="getHr"></span>
+                            <span id="getHrDown">00</span>
                             <div class="desc">Hours</div>
                         </div>
                         <div class="col-lg-3 col-xs-6">
-                            <span id="getMin"></span>
+                            <span id="getMinDown">00</span>
                             <div class="desc">Minutes</div>
                         </div>
                         <div class="col-lg-3 col-xs-6">
-                            <span id="getSec"></span>
+                            <span id="getSecDown">00</span>
                             <div class="desc">Seconds</div>
                         </div>
                     </div>
             <!--Card content-->
                     <div class="card-block">
                         <center>                
-                        <a id="startPause" class="btn-floating btn-small play" onclick="startPause()"><i id="play" class="fa fa-play"></i></a>
-                        <a class="btn-floating btn-small stop" onclick="reset()"><i class="fa fa-refresh"></i></a>
+                        <a id="startPause" class="btn-floating btn-small play" onclick="startPauseDown()"><i id="playDown" class="fa fa-play"></i></a>
+                        <a class="btn-floating btn-small stop" onclick="resetDown()"><i class="fa fa-refresh"></i></a>
                         </center>
                     </div>
             <!--/.Card content-->
@@ -99,7 +99,6 @@
         <div class="form-group card row mt-3 col-lg-4 offset-lg-4">
             <div class="card-block mt-3 ">
             <div class="md-form input-group">
-                <input type="number" id="inputTime" class="form-control" value="15" aria-describedby="basic-addon2">
                 <span class="input-group-addon"> seconds</span>
             </div>
             <div class="text-xs-center md-form form-group">
