@@ -54,6 +54,11 @@ function increment () {
 			document.getElementById("getMin").innerHTML = mins;
 			document.getElementById("getSec").innerHTML = secs;
 			increment(); }
+			else {
+				running = 0;
+				time = 0;
+				document.getElementById("play").className = "fa fa-play";
+			}
 		}, 1000);
 	}
 }

@@ -1,6 +1,6 @@
 body {
 	font-size: 1rem;	
-	background: #ebebeb; /* fallback for old browsers */
+	background: #2ecc71; /* fallback for old browsers */
         }
 .card:hover {
   box-shadow: 0 12px 24px rgba(9,78,75,0.25), 0 7.5px 7.5px rgba(9,78,75,0.22);
