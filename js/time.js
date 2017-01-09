@@ -14,8 +14,7 @@ function initializeClock() {
 	}
 	if(runningDown == 0) {
 		runningDown = 1;
-		var countTarget = document.getElementById("inputTime").value;
-		decrement(countTarget);
+		decrement(document.getElementById("inputTime").value);
 		document.getElementById("playDown").className = "fa fa-pause";
 	}
 	
@@ -97,6 +96,7 @@ function increment () {
 // function decrement () {
 // 	console.log('decrement() called');
 // }
+var count = 0;
 function decrement (timeDown) {
 	if(runningDown == 1) {
 		setTimeout(function(){ 
@@ -105,7 +105,7 @@ function decrement (timeDown) {
 			var hours =  Math.floor((timeDown % 86400) / 3600);
 			var mins = Math.floor(((timeDown % 86400) % 3600) / 60);
 			var secs =  Math.floor(((timeDown % 86400) % 3600) % 60);;
-			
+			count++;
 			timeDown--;
 
 			if (days < 10) {days = "0" + days;}
@@ -117,7 +117,7 @@ function decrement (timeDown) {
 			document.getElementById("getHrDown").innerHTML = hours;
 			document.getElementById("getMinDown").innerHTML = mins;
 			document.getElementById("getSecDown").innerHTML = secs;
-			decrement(); }
+			decrement(timeDown); }
 			else {
 				runningDown = 0;
 				timeDown = 0;
