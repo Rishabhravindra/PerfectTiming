@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -31,54 +29,48 @@
 
 <div class="container">
 <div class="row mt-3">
-<div class="md-form text-xs-center col-md-2 ">
-    <input type="number" min="0" value="5" placeholder="500" id="inputTime" class="form-control">
-    <label for="form1" class="">Time (seconds)</label>
-</div>
-<div class="md-form col-md-2 ">
-    <button type="button" id="getTimeButton" class="btn btn-lg btn-primary" >Start/Pause</button>
-</div>
-<div class="md-form col-md-2 ">
-    <button type="button" id="resetButton" class="btn btn-lg btn-primary" >Reset</button>
-</div>
 
 </div>
-<div class="col-md-6 ">
- <!--Card-->
-    <div class="card card-cascade">
+    <div class="col-md-6 col-xs-10">
+    <!--Card-->
+    <div class="card clock pt-2">
+          <div  class="rows text-xs-center ">
+                    <div class="col-lg-3 col-xs-6">
+                        <span id="getDays">00</span>
+                        <div class="desc">Days</div>
+                    </div>
+                    <div class="col-lg-3 col-xs-6">
+                        <span id="getHr">00</span>
+                        <div class="desc">Hours</div>
+                    </div>
+                    <div class="col-lg-3 col-xs-6">
+                        <span id="getMin">00</span>
+                        <div class="desc">Minutes</div>
+                    </div>
+                    <div class="col-lg-3 col-xs-6">
+                        <span id="getSec">00</span>
+                        <div class="desc">Seconds</div>
+                    </div>
+                </div>
         <!--Card content-->
         <div class="card-block">
-            <!--Title-->
-            <div id="clockdiv" class="rows text-xs-center ">
-                <div class="col-md-3 col-xs-6">
-                    <span id="getDays">0</span>
-                    <div class="desc">Days</div>
-                </div>
-                <div class="col-md-3 col-xs-6">
-                    <span id="getHr">0</span>
-                    <div class="desc">Hours</div>
-                </div>
-                <div class="col-md-3 col-xs-6">
-                    <span id="getMin">0</span>
-                    <div class="desc">Minutes</div>
-                </div>
-                <div class="col-md-3 col-xs-6">
-                    <span id="getSec">0</span>
-                    <div class="desc">Seconds</div>
-                </div>
-            </div>
+            <center>                
+            <a id="startPause" class="btn-floating btn-small play" onclick="startPause()"><i id="play" class="fa fa-play"></i></a>
+            <a class="btn-floating btn-small stop" onclick="reset()"><i class="fa fa-refresh"></i></a>
+            </center>
         </div>
         <!--/.Card content-->
 
     </div>
     <!--/.Card-->
+
 </div>
 </div>
 <!-- Javascript plug-in -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
     <script src="js/mdb.min.js"></script>
-    <script type="text/javascript" src="time.js"></script>
+    <script type="text/javascript" src="js/time.js"></script>
 
 
 </body>

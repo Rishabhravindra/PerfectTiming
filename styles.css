@@ -1,44 +1,21 @@
 body {
-	font-size: 1rem;
+	font-size: 1rem;	
+	background: #AAFFA9; /* fallback for old browsers */
+	background: -webkit-linear-gradient(to left, #AAFFA9 , #11FFBD); /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to left, #AAFFA9 , #11FFBD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        }
+.card:hover {
+  box-shadow: 0 12px 24px rgba(9,78,75,0.25), 0 7.5px 7.5px rgba(9,78,75,0.22);
 }
-/*body{
-	text-align: center;
-	background: #00ECB9;
-  font-family: sans-serif;
-  font-weight: 100;
+.card-title {
+	font-weight: 700;
 }
-
-h1{
-  color: #396;
-  font-weight: 100;
-  font-size: 40px;
-  margin: 40px 0px 20px;
+.card-text {
+    font-size: 1rem;
 }
-
-#clockdiv{
-	font-family: sans-serif;
-	color: #fff;
-	display: inline-block;
-	font-weight: 100;
-	text-align: center;
-	font-size: 30px;
+.play {
+	background-color: #27AE60;
 }
-
-#clockdiv > div{
-	padding: 10px;
-	border-radius: 3px;
-	background: #00BF96;
-	display: inline-block;
+.stop {
+	background-color: #F1593A;
 }
-
-#clockdiv div > span{
-	padding: 15px;
-	border-radius: 3px;
-	background: #00816A;
-	display: inline-block;
-}
-
-.smalltext{
-	padding-top: 5px;
-	font-size: 16px;
-}*/

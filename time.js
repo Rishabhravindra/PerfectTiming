@@ -38,12 +38,6 @@ function initializeClock(d,h,m,s,target) {
 	var hr = document.getElementById(h);	
 	var min = document.getElementById(m);
 	var sec = document.getElementById(s);
-
-	// var daysSpan = clock.querySelector('.getDays');
-	// var hoursSpan = clock.querySelector('.getHr');
-	// var minutesSpan = clock.querySelector('.getMin');
-	// var secondsSpan = clock.querySelector('.getSec');
-
 function updateClock() {
 	var t = calcTime(target);
 	days.innerHTML = t.days;
@@ -52,23 +46,22 @@ function updateClock() {
 	sec.innerHTML = t.seconds;
 	target--;
 		if(t.total<=0 ) { 
-			clearInterval(timeinterval);
+			resetClock();
 		}
-	}
+	};
 	function resetClock() {
 		clearInterval(timeinterval);
 		days.innerHTML = 0;
 		hr.innerHTML = 0;
 		min.innerHTML = 0;
 		sec.innerHTML = 0;
-		count--;
+		count = 0;
 	}
 	reset.onclick = function() {resetClock()};
 	updateClock(); // run function once at first to avoid delay
 	var timeinterval = setInterval(updateClock,1000);
 	}
 	else {
-		console.log("Pause Enabled");
-	}
+				alert('Pause?');}
 }
 	

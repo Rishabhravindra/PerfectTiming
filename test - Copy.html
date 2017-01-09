@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#output {
+			width: 120px;
+			height: 25px;
+			background-color: #ebebeb;
+			border: 1px solid #999;
+		}
+	</style>
+	<script type="text/javascript">
+		var time = 0;
+		var running = 0;
+
+		function startPause() {
+			if(running==0) {
+				running =1;
+				increment();
+				document.getElementById("startPause").innerHTML = "Pause";
+			}
+			else {
+				running =0;
+				document.getElementById("startPause").innerHTML = "Resume";
+			}
+		}
+		function reset() {
+			 running =0;
+			 time =0;
+			document.getElementById("startPause").innerHTML = "Start";
+			document.getElementById("output").innerHTML = "00:00:00:00";
+		}
+		function increment () {
+			if (running == 1) {
+			setTimeout(function(){
+				time++;
+				var mins = Math.floor(((time % 86400) % 3600) / 60);
+				var secs =  Math.floor(((time % 86400) % 3600) % 60);;
+				var hours =  Math.floor((time % 86400) / 3600);
+				var days  =  Math.floor(time / 86400);
+				
+				if ( days < 10) {
+					days = "0" +days;
+				}
+				if ( hours < 10) {
+					hours = "0" + hours;
+				}
+				if(mins<10){
+					mins = "0" +mins;
+				}
+				if ( secs < 10) {
+					secs = "0" + secs;
+				}
+
+				document.getElementById("output").innerHTML= days + ":" + hours + ":" + mins + ":" + secs;
+				increment();
+			}, 1000);
+		  }
+		}
+	</script>
+</head>
+<body>
+<p id="output">00:00:00:00</p>
+<div id="controls">
+<button id="startPause" onclick="startPause()"> Start</button>
+<button onclick="reset()">Reset</button>
+</div>
+</body>
+</html>
