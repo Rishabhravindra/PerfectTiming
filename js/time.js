@@ -1,6 +1,12 @@
 var time = 0;
 var running = 0;
-
+function initializeClock() {
+	if(running == 0) {
+		running = 1;
+		increment();
+		document.getElementById("play").className = "fa fa-pause";
+	}
+}
 function startPause() {
 	if(running == 0) {
 		running = 1;

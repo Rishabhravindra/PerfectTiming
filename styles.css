@@ -1,8 +1,6 @@
 body {
 	font-size: 1rem;	
-	background: #AAFFA9; /* fallback for old browsers */
-	background: -webkit-linear-gradient(to left, #AAFFA9 , #11FFBD); /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to left, #AAFFA9 , #11FFBD); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	background: #ebebeb; /* fallback for old browsers */
         }
 .card:hover {
   box-shadow: 0 12px 24px rgba(9,78,75,0.25), 0 7.5px 7.5px rgba(9,78,75,0.22);
