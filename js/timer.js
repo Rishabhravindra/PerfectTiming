@@ -3,6 +3,8 @@ var runningUp = 0;
 var timeDown = getTarget();
 var runningDown = 0;
 var resetDownId;
+var resetUpId;
+
 function getTarget() {
 		var countTarget = document.getElementById("inputTime").value;
 		return countTarget;
@@ -36,6 +38,7 @@ function startPauseDown() {
 	}
 }
 function resetUp() {
+	clearTimeout(resetUpId);
 	runningUp = 0;
 	timeUp = 0;
 	document.getElementById("getDaysUp").innerHTML = "00";
@@ -58,38 +61,35 @@ function resetDown() {
 	document.getElementById("getSecDown").innerHTML = "00";
 	document.getElementById("playDown").className = "fa fa-play";
 }
-// function increment () {
-// 	if(runningUp == 1) {
-// 		targetUp = getTarget();
-// 		setTimeout(function(){
-// 			if(targetUp >= timeUp ) {
-// 			var days  =  Math.floor(timeUp / 86400);
-// 			var hours =  Math.floor((timeUp % 86400) / 3600);
-// 			var mins = Math.floor(((timeUp % 86400) % 3600) / 60);
-// 			var secs =  Math.floor(((timeUp % 86400) % 3600) % 60);;
-			
-// 			timeUp++;
-
-// 			if (days < 10) {days = "0" + days;}
-// 			if (hours < 10) {hours = "0" + hours;}
-// 			if (mins < 10) {mins = "0" + mins;}
-// 			if (secs < 10) {secs = "0" + secs;}
-
-// 			document.getElementById("getDaysUp").innerHTML = days;
-// 			document.getElementById("getHrUp").innerHTML = hours;
-// 			document.getElementById("getMinUp").innerHTML = mins;
-// 			document.getElementById("getSecUp").innerHTML = secs;
-// 			increment(); }
-// 			else {
-// 				runningUp = 0;
-// 				timeUp = 0;
-// 				document.getElementById("playUp").className = "fa fa-play";
-// 			}
-// 		}, 1000);
-// 	}
-// }
 function increment () {
-	console.log('increment() called');
+	if(runningUp == 1) {
+		targetUp = getTarget();
+		var resetUpId = setTimeout(function(){
+			if(targetUp >= timeUp ) {
+			var days  =  Math.floor(timeUp / 86400);
+			var hours =  Math.floor((timeUp % 86400) / 3600);
+			var mins = Math.floor(((timeUp % 86400) % 3600) / 60);
+			var secs =  Math.floor(((timeUp % 86400) % 3600) % 60);;
+			
+			timeUp++;
+
+			if (days < 10) {days = "0" + days;}
+			if (hours < 10) {hours = "0" + hours;}
+			if (mins < 10) {mins = "0" + mins;}
+			if (secs < 10) {secs = "0" + secs;}
+
+			document.getElementById("getDaysUp").innerHTML = days;
+			document.getElementById("getHrUp").innerHTML = hours;
+			document.getElementById("getMinUp").innerHTML = mins;
+			document.getElementById("getSecUp").innerHTML = secs;
+			increment(); }
+			else {
+				runningUp = 0;
+				timeUp = 0;
+				document.getElementById("playUp").className = "fa fa-play";
+			}
+		}, 1000);
+	}
 }
 var count = 0;
 function decrement (timeDown) {
