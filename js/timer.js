@@ -5,45 +5,49 @@ var runningDown = 0;
 var resetDownId;
 var resetUpId;
 var remainingTime;
+
 function getTarget() {
 		var countTarget = document.getElementById("inputTime").value;
 		return countTarget;
 }
+
+var countUpIcon = document.getElementById("playUp");
+var countDownIcon = document.getElementById("playDown");
 function initializeClock() {
 				
 
 	if(runningUp == 0) {
 		runningUp = 1;
 		increment();
-		document.getElementById("playUp").className = "fa fa-pause";
+		 countUpIcon.className = "fa fa-pause";
 		document.getElementById("startPauseUp").disabled = false;
 	}
 	else {
 		runningUp = 0;
-		document.getElementById("playUp").className = "fa fa-play";
+		countUpIcon.className = "fa fa-play";
 	}
 	// startPauseDown();
 	if(runningDown == 0) {
 		runningDown = 1;
 		console.log('TImedown outside decrement ' + timeDown);
 		decrement(getTarget());
-		document.getElementById("playDown").className = "fa fa-pause";
+		countDownIcon.className = "fa fa-pause";
 		document.getElementById("startPauseDown").disabled = false;
 	}
 	else {
 		runningDown = 0;
-		document.getElementById("playDown").className = "fa fa-play";
+		countDownIcon.className = "fa fa-play";
 	}	
 }
 function startPauseUp() {
 	if(runningUp == 0) {
 		runningUp = 1;
 		increment();
-		document.getElementById("playUp").className = "fa fa-pause";
+		countUpIcon.className = "fa fa-pause";
 	}
 	else {
 		runningUp = 0;
-		document.getElementById("playUp").className = "fa fa-play";
+		countUpIcon.className = "fa fa-play";
 	}
 }
 function startPauseDown() {
@@ -51,22 +55,23 @@ function startPauseDown() {
 		runningDown = 1;
 		console.log('TImedown outside decrement ' + timeDown);
 		decrement(remainingTime);
-		document.getElementById("playDown").className = "fa fa-pause";
+		countDownIcon.className =  "fa fa-pause";
 	}
 	else {
 		runningDown = 0;
-		document.getElementById("playDown").className = "fa fa-play";
+		countDownIcon.className =  "fa fa-play";
 	}
 }
 function resetUp() {
 	clearTimeout(resetUpId);
 	runningUp = 0;
 	timeUp = 0;
+	document.getElementById("startPauseUp").disabled = true;
 	document.getElementById("getDaysUp").innerHTML = "00";
 	document.getElementById("getHrUp").innerHTML = "00";
 	document.getElementById("getMinUp").innerHTML = "00";
 	document.getElementById("getSecUp").innerHTML = "00";
-	document.getElementById("playUp").className = "fa fa-play";
+	countUpIcon.className = "fa fa-play";
 
 
 	
@@ -76,11 +81,12 @@ function resetDown() {
 	clearTimeout(resetDownId);
 	runningDown = 0;
 	timeDown = 0;
+	document.getElementById("startPauseDown").disabled = true;
 	document.getElementById("getDaysDown").innerHTML = "00";
 	document.getElementById("getHrDown").innerHTML = "00";
 	document.getElementById("getMinDown").innerHTML = "00";
 	document.getElementById("getSecDown").innerHTML = "00";
-	document.getElementById("playDown").className = "fa fa-play";
+	countDownIcon.className =  "fa fa-play";
 }
 function increment () {
 	if(runningUp == 1) {
@@ -107,10 +113,10 @@ function increment () {
 			else {
 				runningUp = 0;
 				timeUp = 0;
-				document.getElementById("playUp").className = "fa fa-play";
+					countUpIcon.className =  "fa fa-play";
 				document.getElementById("startPauseDown").disabled = true;
 			}
-		}, 1000);
+		}, 100);
 	}
 }
 var count = 0;
@@ -140,10 +146,10 @@ function decrement (timeDown) {
 			else {
 				runningDown = 0;
 				timeDown = 0;
-				document.getElementById("playDown").className = "fa fa-play";
+				countDownIcon.className = "fa fa-play";
 				document.getElementById("startPauseUp").disabled = true;
 			}
-		}, 1000);
+		}, 100);
 	}
 }	
 
