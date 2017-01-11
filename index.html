@@ -6,6 +6,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
     <title>PerfectTime | Two Way Count Timers</title>
+    <link rel="shortcut icon" href="favicon.ico" />
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css">
@@ -18,8 +19,6 @@
 
     <!-- Your custom styles (optional) -->
     <link href="css/style.css" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
-
     <!-- Montserrat font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400" rel="stylesheet">
 
@@ -28,11 +27,13 @@
 <body>  
 
 <div class="container">
-<div class="row mt-3">
-
+<div class="row mt-3 offset-xs-1">
         <div class="col-md-6 col-xs-10">
         <!--Card-->
         <div class="card clock pt-2">
+        <div class="card-title text-xs-center">
+            Count Up Timer
+        </div>
               <div  class="rows text-xs-center ">
                         <div class="col-lg-3 col-xs-6">
                             <span id="getDaysUp">00</span>
@@ -66,10 +67,13 @@
         </div>
         <!--/.Card-->
     </div>
-      <div class="col-md-6 col-xs-10">
+      <div class="col-md-6 col-xs-10 ">
         <!--Card-->
         <div class="card clock pt-2">
-              <div  class="rows text-xs-center ">
+        <div class="card-title text-xs-center">
+            Count Down Timer
+        </div>
+              <div  class="text-xs-center ">
                         <div class="col-lg-3 col-xs-6">
                             <span id="getDaysDown">00</span>
                             <div class="desc">Days</div>
@@ -102,9 +106,10 @@
     </div>
 </div>
 
-        <div class="form-group card row mt-3 col-lg-4 offset-lg-4">
+        <div class="form-group card row mt-3 col-md-6 col-xs-10 offset-xs-1 offset-md-3">
             <div class="card-block mt-3 ">
             <div class="md-form input-group">
+            <label>Enter Time (sec)</label>
                 <input type="number" id="inputTime" class="form-control" value="2" aria-describedby="basic-addon2">
                 <span class="input-group-addon"> seconds</span>
             </div>

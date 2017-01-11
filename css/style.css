@@ -1,192 +1,25 @@
-body { 
-font-family: 'Montserrat', sans-serif; }
-
-html,
-body,
-header,
-.view {
+body {
+    font-family: 'Montserrat', sans-serif;
     height: 100%;
-	text-align: justify;
-        font-size: 0.75rem;
-
+    text-align: justify;
+    font-size: 1rem;
+    background: #2ecc71;
 }
-
-.h6, h6 {
-  font-size: 0.75rem;
+.card:hover {
+    box-shadow: 0 12px 24px rgba(9, 78, 75, 0.25), 0 7.5px 7.5px rgba(9, 78, 75, 0.22);
 }
-.view {
- background: url("../img/blog.jpg")no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+.card-title {
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.25rem;
+    color: #0066cc;
 }
-@media (max-width: 768px) {
-    .full-bg-img,
-    .view {
-        height: auto;
-        position: relative;
-    }
-}
-
-.description {
-    padding-top: 25%;
-    padding-bottom: 3rem;
-    color: #fff
-}
-.blog-card {
-      padding-top: 8%;
-
-}
-@media (max-width: 992px) {
-    .description {
-        padding-top: 7rem;
-        text-align: center;
-    }
-  
-}
-.nav-tabs {
-	position: inherit;
-	margin-bottom: 0rem;
-	margin-left: 0;
-    margin-right: 0; 
-    z-index: 0;
-}
-.btn {
-padding: 0.75rem;
-margin: 1.0px 2.0px;
-font-size: .6rem;
-}
-
 .card-text {
-font-size: 0.7rem;
+    font-size: 1rem;
 }
-.btn-rounded {
-  -webkit-border-radius: 2em;
-  -moz-border-radius: 2em;
-  -ms-border-radius: 2em;
-  -o-border-radius: 2em;
-  border-radius: 2em;
+.play {
+    background-color: #27AE60;
 }
-.time {
-  background-color: #f8f8f8;
-}
-
-hr {
-    margin-top: 0.75rem;
-    margin-bottom: 0.75rem;
-  }
-  .modal-ext .modal-content .modal-body {
-    padding: 0rem 2rem 0rem;
-}
-.md-form label {
-  font-size: 0.75rem;
-}
-
-.rate {
-  background-color: #000;
-}
-.card-title {
-  font-family: 'Roboto', sans-serif;
-}
-.form-inline .form-control {
-  width: 85px;
-}
-.form-inline .start {
-  width: 150px;
-}
-.form-inline .datepicker {
-  width: 150px;
-}
-
-.form-inline .attraction {
-  width: 350px;
-}
-
-.dropdown-content li>a, .dropdown-content li>span {
-    font-size: 1.2rem;
-    color: #4285F4;
-    display: block;
-    padding: 1rem;
-}
-.modal-footer .btn+.btn {
-    margin-bottom: 0;
-}
-.card-title {
-  font-family: 'Montserrat', sans-serif;
-}
-.profile {
-  font-size: 1rem;
-}
-.sliderVal {
-  font-size: 1rem;
-}
-.map-dashboard {
-  font-size: 0.90rem;
-  text-align: left;
-}
-/************************
-Slider
-************************/
-input[type=range] {
-    margin: auto;
-    outline: none;
-    padding: 0;
-    width: 100%;
-    height: 6px;
-    background-color: #ebebeb;
-    background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #0080ff), color-stop(100%, #51475a));
-    background-image: -webkit-linear-gradient(#0080ff, #0080ff);
-    background-image: -moz-linear-gradient(#0080ff, #0080ff);
-    background-image: -o-linear-gradient(#0080ff, #0080ff);
-    background-image: linear-gradient(#0080ff, #0080ff);
-    background-size: 50% 100%;
-    background-repeat: no-repeat;
-    border-radius: 10px;
-    cursor: pointer;
-    -webkit-appearance: none;
-}
-
-input[type=range]::-webkit-slider-runnable-track {
-    box-shadow: none;
-    border: none;
-    background: transparent;
-    -webkit-appearance: none;
-}
-
-input[type=range]::-moz-range-track {
-    box-shadow: none;
-    border: none;
-    background: transparent;
-}
-
-input[type=range]::-moz-focus-outer {
-    border: 0;
-}
-
-input[type=range]::-webkit-slider-thumb {
-    width: 16px;
-    height: 16px;
-    border: 0;
-    background: #0080ff;
-    border-radius: 100%;
-    box-shadow: 0 0 1px 0px rgba(0,0,0,0.1);
-    -webkit-appearance: none;
-}
-
-input[type=range]::-moz-range-thumb {
-    width: 14px;
-    height: 14px;
-    border: 0;
-    background: #fff;
-    border-radius: 100%;
-    box-shadow: 0 0 1px 0px rgba(0,0,0,0.1);
-}
-
-.card-title {
-  font-size: 1rem;
-}
-
-.btn-itin {
-  font-size: 1rem;
+.stop {
+    background-color: #F1593A;
 }
