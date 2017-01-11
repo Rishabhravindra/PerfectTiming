@@ -4,15 +4,24 @@ var timeDown = getTarget();
 var runningDown = 0;
 var resetDownId;
 var resetUpId;
-
+var remainingTime;
 function getTarget() {
 		var countTarget = document.getElementById("inputTime").value;
 		return countTarget;
 }
 function initializeClock() {
 	startPauseUp();
-	startPauseDown();
-	
+	// startPauseDown();
+	if(runningDown == 0) {
+		runningDown = 1;
+		console.log('TImedown outside decrement ' + timeDown);
+		decrement(getTarget());
+		document.getElementById("playDown").className = "fa fa-pause";
+	}
+	else {
+		runningDown = 0;
+		document.getElementById("playDown").className = "fa fa-play";
+	}	
 }
 function startPauseUp() {
 	if(runningUp == 0) {
@@ -29,7 +38,7 @@ function startPauseDown() {
 	if(runningDown == 0) {
 		runningDown = 1;
 		console.log('TImedown outside decrement ' + timeDown);
-		decrement(timeDown);
+		decrement(remainingTime);
 		document.getElementById("playDown").className = "fa fa-pause";
 	}
 	else {
@@ -103,6 +112,7 @@ function decrement (timeDown) {
 			count++;
 
 			timeDown--;
+			remainingTime = timeDown;
 			console.log('TImedown inside decrement ' + timeDown);
 			if (days < 10) {days = "0" + days;}
 			if (hours < 10) {hours = "0" + hours;}
