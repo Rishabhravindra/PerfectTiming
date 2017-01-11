@@ -10,13 +10,25 @@ function getTarget() {
 		return countTarget;
 }
 function initializeClock() {
-	startPauseUp();
+				
+
+	if(runningUp == 0) {
+		runningUp = 1;
+		increment();
+		document.getElementById("playUp").className = "fa fa-pause";
+		document.getElementById("startPauseUp").disabled = false;
+	}
+	else {
+		runningUp = 0;
+		document.getElementById("playUp").className = "fa fa-play";
+	}
 	// startPauseDown();
 	if(runningDown == 0) {
 		runningDown = 1;
 		console.log('TImedown outside decrement ' + timeDown);
 		decrement(getTarget());
 		document.getElementById("playDown").className = "fa fa-pause";
+		document.getElementById("startPauseDown").disabled = false;
 	}
 	else {
 		runningDown = 0;
@@ -96,6 +108,7 @@ function increment () {
 				runningUp = 0;
 				timeUp = 0;
 				document.getElementById("playUp").className = "fa fa-play";
+				document.getElementById("startPauseDown").disabled = true;
 			}
 		}, 1000);
 	}
@@ -128,7 +141,9 @@ function decrement (timeDown) {
 				runningDown = 0;
 				timeDown = 0;
 				document.getElementById("playDown").className = "fa fa-play";
+				document.getElementById("startPauseUp").disabled = true;
 			}
 		}, 1000);
 	}
 }	
+

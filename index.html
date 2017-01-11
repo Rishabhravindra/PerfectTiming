@@ -54,7 +54,9 @@
             <!--Card content-->
                     <div class="card-block">
                         <center>                
-                        <a id="startPause" class="btn-floating btn-small play" onclick="startPauseUp()"><i id="playUp" class="fa fa-play"></i></a>
+                        <button id="startPauseUp" onclick="startPauseUp()" class="btn play btn-lg"><i id="playUp" class="fa fa-play"></i></button>
+                            
+                        </button>
                         <a class="btn-floating btn-small stop" onclick="resetUp()"><i class="fa fa-refresh"></i></a>
                         </center>
                     </div>
@@ -86,7 +88,7 @@
             <!--Card content-->
                     <div class="card-block">
                         <center>                
-                        <a id="startPause" class="btn-floating btn-small play" onclick="startPauseDown()"><i id="playDown" class="fa fa-play"></i></a>
+                        <button id="startPauseDown" onclick="startPauseDown()" class="btn play btn-lg"><i id="playDown" class="fa fa-play"></i></button>
                         <a class="btn-floating btn-small stop" onclick="resetDown()"><i class="fa fa-refresh"></i></a>
                         </center>
                     </div>
@@ -99,11 +101,11 @@
         <div class="form-group card row mt-3 col-lg-4 offset-lg-4">
             <div class="card-block mt-3 ">
             <div class="md-form input-group">
-                <input type="number" id="inputTime" class="form-control" value="10" aria-describedby="basic-addon2">
+                <input type="number" id="inputTime" class="form-control" value="2" aria-describedby="basic-addon2">
                 <span class="input-group-addon"> seconds</span>
             </div>
             <div class="text-xs-center md-form form-group">
-                <a  id="startButton" onclick="initializeClock()" class="btn btn-primary btn-lg">Set Values</a>
+                <button id="startButton" onclick="initializeClock()" class="btn btn-primary btn-lg">Set</button>
             </div>
             </div>
         </div>
