@@ -1,10 +1,8 @@
-var timeUp = 0;
-var runningUp = 0;
-var timeDown = getTarget();
-var runningDown = 0;
-var resetDownId;
-var resetUpId;
-var remainingTime;
+	var runningUp = 0;
+	var runningDown = 0;
+	var timeUp = 0;
+
+var remainingTimeDown;
 
 document.getElementById("startPauseUp").disabled = true;
 document.getElementById("startPauseDown").disabled = true;
@@ -14,56 +12,54 @@ function getTarget() {
     return countTarget;
 }
 
-var countUpIcon = document.getElementById("playUp");
-var countDownIcon = document.getElementById("playDown");
 
 function initializeClock() {
-    if (runningUp == 0) {
+
+	var timeDown = getTarget();
+    if (runningUp === 0) {
         runningUp = 1;
         increment(getTarget());
-        countUpIcon.className = "fa fa-pause";
+        setIconUp(runningUp);
         document.getElementById("startPauseUp").disabled = false;
     } else {
         runningUp = 0;
-        countUpIcon.className = "fa fa-play";
+        setIconUp(runningUp);
     }
     // startPauseDown();
-    if (runningDown == 0) {
+    if (runningDown === 0) {
         runningDown = 1;
-        console.log('TImedown outside decrement ' + timeDown);
         decrement(getTarget());
-        countDownIcon.className = "fa fa-pause";
+        setIconDown(runningDown);
         document.getElementById("startPauseDown").disabled = false;
     } else {
         runningDown = 0;
-        countDownIcon.className = "fa fa-play";
+        setIconDown(runningDown);
     }
 }
 
 function startPauseUp() {
-    if (runningUp == 0) {
+    if (runningUp === 0) {
         runningUp = 1;
         increment();
-        countUpIcon.className = "fa fa-pause";
+        setIconUp(runningUp);
     } else {
         runningUp = 0;
-        countUpIcon.className = "fa fa-play";
+		setIconUp(runningUp);
     }
 }
 
 function startPauseDown() {
-    if (runningDown == 0) {
+    if (runningDown === 0) {
         runningDown = 1;
-        console.log('TImedown outside decrement ' + timeDown);
-        decrement(remainingTime);
-        countDownIcon.className = "fa fa-pause";
+        decrement(remainingTimeDown);
+        setIconDown(runningDown);
     } else {
         runningDown = 0;
-        countDownIcon.className = "fa fa-play";
+        setIconDown(runningDown);
     }
 }
 
-function resetUp() {
+function resetUp(resetUpId) {
     clearTimeout(resetUpId);
     runningUp = 0;
     timeUp = 0;
@@ -72,10 +68,10 @@ function resetUp() {
     document.getElementById("getHrUp").innerHTML = "00";
     document.getElementById("getMinUp").innerHTML = "00";
     document.getElementById("getSecUp").innerHTML = "00";
-    countUpIcon.className = "fa fa-play";
+    setIconUp(runningUp);
 }
 
-function resetDown() {
+function resetDown(resetDownId) {
     clearTimeout(resetDownId);
     runningDown = 0;
     timeDown = 0;
@@ -84,87 +80,94 @@ function resetDown() {
     document.getElementById("getHrDown").innerHTML = "00";
     document.getElementById("getMinDown").innerHTML = "00";
     document.getElementById("getSecDown").innerHTML = "00";
-    countDownIcon.className = "fa fa-play";
+        setIconDown(runningDown);
 }
 
 function increment() {
-    if (runningUp == 1) {
+    if (runningUp === 1) {
         targetUp = getTarget();
         var resetUpId = setTimeout(function() {
             if (targetUp >= timeUp) {
-                var days = Math.floor(timeUp / 86400);
-                var hours = Math.floor((timeUp % 86400) / 3600);
-                var mins = Math.floor(((timeUp % 86400) % 3600) / 60);
-                var secs = Math.floor(((timeUp % 86400) % 3600) % 60);;
-
+            	remainingTimeUp = timeUp; 
+            	var t = calcTime(remainingTimeUp);
                 timeUp++;
 
-                if (days < 10) {
-                    days = "0" + days;
+                if (t.days < 10) {
+                    t.days = "0" + t.days;
                 }
-                if (hours < 10) {
-                    hours = "0" + hours;
+                if (t.hours < 10) {
+                    t.hours = "0" + t.hours;
                 }
-                if (mins < 10) {
-                    mins = "0" + mins;
+                if (t.mins < 10) {
+                    t.mins = "0" + t.mins;
                 }
-                if (secs < 10) {
-                    secs = "0" + secs;
+                if (t.secs < 10) {
+                    t.secs = "0" + t.secs;
                 }
 
-                document.getElementById("getDaysUp").innerHTML = days;
-                document.getElementById("getHrUp").innerHTML = hours;
-                document.getElementById("getMinUp").innerHTML = mins;
-                document.getElementById("getSecUp").innerHTML = secs;
+                document.getElementById("getDaysUp").innerHTML = t.days;
+                document.getElementById("getHrUp").innerHTML = t.hours;
+                document.getElementById("getMinUp").innerHTML = t.mins;
+                document.getElementById("getSecUp").innerHTML = t.secs;
                 increment();
             } else {
-                runningUp = 0;
-                timeUp = 0;
-                countUpIcon.className = "fa fa-play";
-                document.getElementById("startPauseDown").disabled = true;
+                resetUp(resetUpId);
             }
-        }, 1000);
+        }, 100);
     }
 }
-var count = 0;
 
 function decrement(timeDown) {
-    if (runningDown == 1) {
-        resetDownId = setTimeout(function() {
+    if (runningDown ===  1) {
+       var resetDownId = setTimeout(function() {
             if (timeDown >= 0) {
-                var days = Math.floor(timeDown / 86400);
-                var hours = Math.floor((timeDown % 86400) / 3600);
-                var mins = Math.floor(((timeDown % 86400) % 3600) / 60);
-                var secs = Math.floor(((timeDown % 86400) % 3600) % 60);
-                count++;
-
+                remainingTimeDown = timeDown;
                 timeDown--;
-                remainingTime = timeDown;
-                console.log('TImedown inside decrement ' + timeDown);
-                if (days < 10) {
-                    days = "0" + days;
+                var t = calcTime(remainingTimeDown);
+                if (t.days < 10) {
+                    t.days = "0" + t.days;
                 }
-                if (hours < 10) {
-                    hours = "0" + hours;
+                if (t.hours < 10) {
+                    t.hours = "0" + t.hours;
                 }
-                if (mins < 10) {
-                    mins = "0" + mins;
+                if (t.mins < 10) {
+                    t.mins = "0" + t.mins;
                 }
-                if (secs < 10) {
-                    secs = "0" + secs;
+                if (t.secs < 10) {
+                    t.secs = "0" + t.secs;
                 }
 
-                document.getElementById("getDaysDown").innerHTML = days;
-                document.getElementById("getHrDown").innerHTML = hours;
-                document.getElementById("getMinDown").innerHTML = mins;
-                document.getElementById("getSecDown").innerHTML = secs;
+                document.getElementById("getDaysDown").innerHTML = t.days;
+                document.getElementById("getHrDown").innerHTML = t.hours;
+                document.getElementById("getMinDown").innerHTML = t.mins;
+                document.getElementById("getSecDown").innerHTML = t.secs;
                 decrement(timeDown);
             } else {
-                runningDown = 0;
-                timeDown = 0;
-                countDownIcon.className = "fa fa-play";
-                document.getElementById("startPauseUp").disabled = true;
+                resetDown(resetDownId);
             }
-        }, 1000);
+        }, 100);
     }
 }
+
+function calcTime(time) {
+		var days = Math.floor(time / 86400);
+        var hours = Math.floor((time % 86400) / 3600);
+        var mins = Math.floor(((time % 86400) % 3600) / 60);
+        var secs = Math.floor(((time % 86400) % 3600) % 60);
+
+	    return {
+		  'days': days,
+		  'hours': hours,
+		  'mins': mins,
+		  'secs': secs
+		};
+	}
+	function setIconUp(flag) {
+		    var countUpIcon = document.getElementById("playUp");
+		    countUpIcon.className = (flag === 0) ? "fa fa-play" : "fa fa-pause";
+	}
+	function setIconDown(flag) {
+		    var countDownIcon = document.getElementById("playDown");
+		    countDownIcon.className = (flag === 0) ? "fa fa-play" : "fa fa-pause";
+	}
+
