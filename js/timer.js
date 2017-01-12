@@ -1,7 +1,6 @@
 	var runningUp = 0;
 	var runningDown = 0;
 	var timeUp = 0;
-
 var remainingTimeDown;
 
 document.getElementById("startPauseUp").disabled = true;
@@ -16,7 +15,7 @@ function getTarget() {
 function initializeClock() {
 
 	var timeDown = getTarget();
-    if (runningUp === 0) {
+    if (runningUp === 0) {	
         runningUp = 1;
         increment(getTarget());
         setIconUp(runningUp);
@@ -72,7 +71,7 @@ function resetUp(resetUpId) {
 }
 
 function resetDown(resetDownId) {
-    clearTimeout(resetDownId);
+	clearTimeout(resetDownId);
     runningDown = 0;
     timeDown = 0;
     document.getElementById("startPauseDown").disabled = true;
@@ -80,7 +79,8 @@ function resetDown(resetDownId) {
     document.getElementById("getHrDown").innerHTML = "00";
     document.getElementById("getMinDown").innerHTML = "00";
     document.getElementById("getSecDown").innerHTML = "00";
-        setIconDown(runningDown);
+    setIconDown(runningDown);
+
 }
 
 function increment() {
@@ -91,61 +91,36 @@ function increment() {
             	remainingTimeUp = timeUp; 
             	var t = calcTime(remainingTimeUp);
                 timeUp++;
-
-                if (t.days < 10) {
-                    t.days = "0" + t.days;
-                }
-                if (t.hours < 10) {
-                    t.hours = "0" + t.hours;
-                }
-                if (t.mins < 10) {
-                    t.mins = "0" + t.mins;
-                }
-                if (t.secs < 10) {
-                    t.secs = "0" + t.secs;
-                }
-
-                document.getElementById("getDaysUp").innerHTML = t.days;
-                document.getElementById("getHrUp").innerHTML = t.hours;
-                document.getElementById("getMinUp").innerHTML = t.mins;
-                document.getElementById("getSecUp").innerHTML = t.secs;
+				var time = formatOutput( t.days, t.hours, t.mins,t.secs );
+                document.getElementById("getDaysUp").innerHTML = time.days;
+                document.getElementById("getHrUp").innerHTML = time.hours;
+                document.getElementById("getMinUp").innerHTML = time.mins;
+                document.getElementById("getSecUp").innerHTML = time.secs;
                 increment();
             } else {
                 resetUp(resetUpId);
             }
-        }, 100);
+        }, 1000);
     }
 }
 
-function decrement(timeDown) {
+function decrement(countDown) {
     if (runningDown ===  1) {
        var resetDownId = setTimeout(function() {
-            if (timeDown >= 0) {
-                remainingTimeDown = timeDown;
-                timeDown--;
-                var t = calcTime(remainingTimeDown);
-                if (t.days < 10) {
-                    t.days = "0" + t.days;
-                }
-                if (t.hours < 10) {
-                    t.hours = "0" + t.hours;
-                }
-                if (t.mins < 10) {
-                    t.mins = "0" + t.mins;
-                }
-                if (t.secs < 10) {
-                    t.secs = "0" + t.secs;
-                }
-
-                document.getElementById("getDaysDown").innerHTML = t.days;
-                document.getElementById("getHrDown").innerHTML = t.hours;
-                document.getElementById("getMinDown").innerHTML = t.mins;
-                document.getElementById("getSecDown").innerHTML = t.secs;
-                decrement(timeDown);
+            if (countDown >= 0) {
+                remainingTimeDown = countDown;
+				var t = calcTime(remainingTimeDown);
+               	 countDown--;
+                var time = formatOutput( t.days, t.hours, t.mins,t.secs );
+                document.getElementById("getDaysDown").innerHTML = time.days;
+                document.getElementById("getHrDown").innerHTML = time.hours;
+                document.getElementById("getMinDown").innerHTML = time.mins;
+                document.getElementById("getSecDown").innerHTML = time.secs;
+                decrement(countDown);
             } else {
                 resetDown(resetDownId);
             }
-        }, 100);
+        }, 1000);
     }
 }
 
@@ -169,5 +144,17 @@ function calcTime(time) {
 	function setIconDown(flag) {
 		    var countDownIcon = document.getElementById("playDown");
 		    countDownIcon.className = (flag === 0) ? "fa fa-play" : "fa fa-pause";
+	}
+	function formatOutput(days,hours, mins,secs) {
+       			if (days < 10) {days = "0" + days;}
+                if (hours < 10) {hours = "0" + hours;}
+                if (mins < 10) {mins = "0" + mins;}
+                if (secs < 10) {secs = "0" + secs;}
+		        return {
+				  'days': days,
+				  'hours': hours,
+				  'mins': mins,
+				  'secs': secs
+				};
 	}
 
