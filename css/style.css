@@ -4,10 +4,7 @@ Global Styles
 **************************/
 body {
     font-family: 'Montserrat', sans-serif;
-    height: 100%;
-    text-align: justify;
-    font-size: 1rem;
-    background: #ab47bc;
+    background: #29b6f6;
 }
 
 /*************************
@@ -17,8 +14,7 @@ Card to hold watches
     box-shadow: 0 12px 24px rgba(9, 78, 75, 0.25), 0 7.5px 7.5px rgba(9, 78, 75, 0.22);
 }
 .card-title {
-    font-weight: 700;
-    font-family: 'Montserrat', sans-serif;
+ 
     font-size: 1.25rem;
     color: #0066cc;
 }

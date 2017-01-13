@@ -107,7 +107,7 @@ function increment() {
             } else {
                 resetUp();
             }
-        }, 10);
+        }, 1000);
     }
 }
 
@@ -129,9 +129,9 @@ function decrement(timeDown) {
                 document.getElementById("startPauseDown").disabled = true;
             }
            }
-        }, 10);
+        }, 1000);
     }
-    
+
 // Convert seconds into days, hours, minutes, and remaining minutes
 function calcTime(time) {
 		var days = Math.floor(time / 86400);
