@@ -3,8 +3,11 @@
 Global Styles
 **************************/
 body {
-    font-family: 'Montserrat', sans-serif;
-    background: #29b6f6;
+    font-family: 'Montserrat', sans-serif;   
+    background: #AAFFA9; 
+    background: -webkit-linear-gradient(to left, #AAFFA9 , #11FFBD);
+    background: linear-gradient(to left, #AAFFA9 , #11FFBD);
+        
 }
 
 /*************************
