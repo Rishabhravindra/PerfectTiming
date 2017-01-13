@@ -117,7 +117,7 @@ function decrement(timeDown) {
       setTimeout(function() {
         if(runningDown ===  1) {
             if (timeDown >= 0) {
-                remainingTimeDown = timeDown;
+                var remainingTimeDown = timeDown;
                 t = calcTime(remainingTimeDown);
                  timeDown--;
                 time = formatOutput( t.days, t.hours, t.mins,t.secs );
