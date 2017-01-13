@@ -7,7 +7,7 @@ body {
     height: 100%;
     text-align: justify;
     font-size: 1rem;
-    background: #2ecc71;
+    background: #ab47bc;
 }
 
 /*************************
@@ -25,9 +25,13 @@ Card to hold watches
 .card-text {
     font-size: 1rem;
 }
+
+/************************
+Background for control buttons
+************************/
 .play {
     background-color: #27AE60;
 }
-.stop {
+.reset {
     background-color: #F1593A;
 }

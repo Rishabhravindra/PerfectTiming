@@ -1,8 +1,8 @@
 /**
  * Perfect Timing
- * By Rishabh Ravindra 2017 
+ * Author: Rishabh Ravindra 2017 
+ * Email: rishabhravindra@gmail.com
  * Submission for Software Development Internship Summer 2017 - ClickTime
- * email: rishabhravindra@gmail.com
  * All questions and submissions are property of ClickTime.com, Inc. (https://www.clicktime.com/?home=true)
  */
 
@@ -79,10 +79,7 @@ function resetUp() {
     runningUp = 0;
     timeUp = 0;
     document.getElementById("startPauseUp").disabled = true;
-    document.getElementById("getDaysUp").innerHTML = "00";
-    document.getElementById("getHrUp").innerHTML = "00";
-    document.getElementById("getMinUp").innerHTML = "00";
-    document.getElementById("getSecUp").innerHTML = "00";
+    resetHTML("Up");
     setIconUp(runningUp);
 }
 
@@ -91,10 +88,7 @@ function resetDown() {
      runningDown = 0;
      decrement(remainingTimeDown);
     document.getElementById("startPauseDown").disabled = true;
-    document.getElementById("getDaysDown").innerHTML = "00";
-    document.getElementById("getHrDown").innerHTML = "00";
-    document.getElementById("getMinDown").innerHTML = "00";
-    document.getElementById("getSecDown").innerHTML = "00";       
+    resetHTML("Down");  
     setIconDown(runningDown);
 }
 
@@ -105,13 +99,10 @@ function increment() {
       setTimeout(function() {
             if (targetUp >= timeUp) {
                 remainingTimeUp = timeUp; 
-                var t = calcTime(remainingTimeUp);
+                t = calcTime(remainingTimeUp);
                 timeUp++;
-                var time = formatOutput( t.days, t.hours, t.mins,t.secs );
-                document.getElementById("getDaysUp").innerHTML = time.days;
-                document.getElementById("getHrUp").innerHTML = time.hours;
-                document.getElementById("getMinUp").innerHTML = time.mins;
-                document.getElementById("getSecUp").innerHTML = time.secs;
+                time = formatOutput( t.days, t.hours, t.mins,t.secs );
+                setHTML("Up",time.days, time.hours,time.mins, time.secs);
                 increment();
             } else {
                 resetUp();
@@ -127,13 +118,10 @@ function decrement(timeDown) {
         if(runningDown ===  1) {
             if (timeDown >= 0) {
                 remainingTimeDown = timeDown;
-                var t = calcTime(remainingTimeDown);
+                t = calcTime(remainingTimeDown);
                  timeDown--;
-                var time = formatOutput( t.days, t.hours, t.mins,t.secs );
-                document.getElementById("getDaysDown").innerHTML = time.days;
-                document.getElementById("getHrDown").innerHTML = time.hours;
-                document.getElementById("getMinDown").innerHTML = time.mins;
-                document.getElementById("getSecDown").innerHTML = time.secs;
+                time = formatOutput( t.days, t.hours, t.mins,t.secs );
+                setHTML("Down",time.days, time.hours,time.mins, time.secs);
                 decrement(timeDown);
             } else {
                 runningDown = 0;
@@ -143,8 +131,7 @@ function decrement(timeDown) {
            }
         }, 10);
     }
-
-
+    
 // Convert seconds into days, hours, minutes, and remaining minutes
 function calcTime(time) {
 		var days = Math.floor(time / 86400);
@@ -185,3 +172,18 @@ function calcTime(time) {
 				};
 	}
 
+    // reset innherHTML to 0 on reset watch
+    function resetHTML (id) {
+        document.getElementById("getDays"+id).innerHTML = "00";
+        document.getElementById("getHr"+id).innerHTML = "00";
+        document.getElementById("getMin"+id).innerHTML = "00";
+        document.getElementById("getSec"+id).innerHTML = "00";
+    }
+
+    // assign html values to watch
+    function setHTML (id,days, hours, mins, secs) {
+                document.getElementById("getDays"+id).innerHTML = days;
+                document.getElementById("getHr"+id).innerHTML = hours;
+                document.getElementById("getMin"+id).innerHTML = mins;
+                document.getElementById("getSec"+id).innerHTML = secs;
+    }
