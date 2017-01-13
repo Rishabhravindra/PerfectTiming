@@ -1,5 +1,12 @@
+<!--
+- Author: Rishabh Ravindra
+- Email: rishabhravindra@gmail.com
+- Submission for Software Development Internship Summer 2017 - ClickTime
+- All questions and submissions are property of ClickTime.com, Inc. (https://www.clicktime.com/?home=true) 
+-->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,24 +23,22 @@
     <!-- Material Design Bootstrap -->
     <link href="css/mdb.min.css" rel="stylesheet">
 
-    <!-- Your custom styles (optional) -->
+    <!-- Custom styles (optional) -->
     <link href="css/style.css" rel="stylesheet">
     <!-- Montserrat font -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400" rel="stylesheet">
-
 </head>
 
-<body >  
-
-<div class="container">
-<div class="row mt-3 offset-xs-1">
-        <div class="col-md-6 col-xs-10">
-        <!--Count Down Watch-->
-        <div class="card clock pt-2">
-        <div class="card-title text-xs-center">
-            Count Up Timer
-        </div>
-              <div  class="rows text-xs-center ">
+<body>
+    <div class="container">
+        <div class="row mt-3 offset-xs-1">
+            <div class="col-md-6 col-xs-10">
+                <!--Count Down Watch-->
+                <div class="card clock pt-2">
+                    <div class="card-title text-xs-center">
+                        Count Up Timer
+                    </div>
+                    <div class="rows text-xs-center ">
                         <div class="col-lg-3 col-xs-6">
                             <span id="getDaysUp">00</span>
                             <div class="desc">Days</div>
@@ -51,28 +56,28 @@
                             <div class="desc">Seconds</div>
                         </div>
                     </div>
-            <!--Controls-->
+                    <!--Controls-->
                     <div class="card-block">
-                        <center>                
-                        <button id="startPauseUp" onclick="startPauseUp()" class="btn play btn-lg"><i id="playUp" class="fa fa-play"></i></button>
-                            
-                        </button>
-                        <button onclick="resetUp()" class="btn btn-lg reset">
+                        <center>
+                            <button id="startPauseUp" onclick="startPauseUp()" class="btn play btn-lg"><i id="playUp" class="fa fa-play"></i></button>
+
+                            </button>
+                            <button onclick="resetUp()" class="btn btn-lg reset">
                             <i class="fa fa-refresh"></i>
                         </button>
                         </center>
                     </div>
-            <!--/.Controls-->
-        </div>
-        <!--/.Count Down Watch-->
-    </div>
-      <div class="col-md-6 col-xs-10 ">
-        <!--Count Down Watch-->
-        <div class="card clock pt-2">
-        <div class="card-title text-xs-center">
-            Count Down Watch
-        </div>
-              <div  class="text-xs-center ">
+                    <!--/.Controls-->
+                </div>
+                <!--/.Count Down Watch-->
+            </div>
+            <div class="col-md-6 col-xs-10 ">
+                <!--Count Down Watch-->
+                <div class="card clock pt-2">
+                    <div class="card-title text-xs-center">
+                        Count Down Watch
+                    </div>
+                    <div class="text-xs-center ">
                         <div class="col-lg-3 col-xs-6">
                             <span id="getDaysDown">00</span>
                             <div class="desc">Days</div>
@@ -90,42 +95,40 @@
                             <div class="desc">Seconds</div>
                         </div>
                     </div>
-            <!--Controls-->
+                    <!--Controls-->
                     <div class="card-block">
-                        <center>                
-                        <button id="startPauseDown" onclick="startPauseDown()" class="btn play btn-lg"><i id="playDown" class="fa fa-play"></i></button>
-                        <button onclick="resetDown()" class="btn btn-lg reset">
+                        <center>
+                            <button id="startPauseDown" onclick="startPauseDown()" class="btn play btn-lg"><i id="playDown" class="fa fa-play"></i></button>
+                            <button onclick="resetDown()" class="btn btn-lg reset">
                             <i class="fa fa-refresh"></i>
                         </button>
                         </center>
                     </div>
-            <!--/.Controls-->
+                    <!--/.Controls-->
+                </div>
+                <!--/.Count Down Watch-->
+            </div>
         </div>
-        <!--/.Count Down Watch-->
-    </div>
-</div>
 
         <div class="form-group card row mt-3 col-md-6 col-xs-10 offset-xs-1 offset-md-3">
             <div class="card-block mt-3 ">
-            <div class="md-form input-group">
-            <label>Enter Time (sec)</label>
-                <input type="number" id="inputTime" class="form-control" value="500" aria-describedby="basic-addon2">
-                <span class="input-group-addon"> seconds</span>
-            </div>
-            <div class="text-xs-center md-form form-group">
-                <button id="startButton" onclick="initializeWatch()" class="btn btn-primary btn-lg">Go!</button>
-                <button id="startButton" onclick="resetWatch()" class="btn btn-primary btn-lg">Reset</button>
-            </div>
+                <div class="md-form input-group">
+                    <label>Enter Time (sec)</label>
+                    <input type="number" id="inputTime" class="form-control" value="500" aria-describedby="basic-addon2">
+                    <span class="input-group-addon"> seconds</span>
+                </div>
+                <div class="text-xs-center md-form form-group">
+                    <button id="startButton" onclick="initializeWatch()" class="btn btn-primary btn-lg">Go!</button>
+                    <button id="startButton" onclick="resetWatch()" class="btn btn-primary btn-lg">Reset</button>
+                </div>
             </div>
         </div>
-</div>
-<!-- Javascript plug-in -->
+    </div>
+    <!-- Javascript plug-in -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/mdb.min.js"></script>
     <script type="text/javascript" src="js/timer.js"></script>
-
-
 </body>
 
 </html>
